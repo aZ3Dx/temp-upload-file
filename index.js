@@ -37,4 +37,8 @@ app.post("/upload", upload.single("file"), async (req, res) => {
   res.json({ url: `${bucketPublicUrl}/${params.Key}` });
 });
 
+app.get("/isalive", (req, res) => {
+  res.send("OK");
+});
+
 app.listen(3000, () => console.log("Server running on port 3000"));
