@@ -9,6 +9,7 @@ dotenv.config();
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 
 const app = express();
+const port = process.env.PORT || 3000;
 app.use(cors());
 
 const upload = multer({ storage: multer.memoryStorage() });
@@ -41,4 +42,4 @@ app.get("/isalive", (req, res) => {
   res.send("OK");
 });
 
-app.listen(3000, () => console.log("Server running on port 3000"));
+app.listen(port, () => console.log(`Server listening on port ${port}!`));
